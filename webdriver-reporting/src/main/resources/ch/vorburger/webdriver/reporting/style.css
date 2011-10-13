@@ -1,0 +1,144 @@
+td {
+    text-align: left;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    padding-right: 0px;
+}
+
+table {
+    table-layout: fixed;
+}
+
+body {
+    height: 100%;
+}
+
+img {
+    float: left;
+}
+
+.spanClass {
+    display: inline;
+    display: block;
+}
+
+.spanClassST{
+	display:none;
+}
+
+.buttonStyle {
+    float: right;
+}
+
+.timeClass {
+    width: 5%;
+}
+
+.container {
+    display: table;
+    border: 1px solid black;
+    width: 100%
+}
+
+.row {
+    display: table-row;
+    border: 1px solid black;
+    width: 100%
+}
+
+.rowBiz {
+    display: table-row;
+    border: 1px solid black;
+    width: 100%
+}
+
+.rowImg {
+    display: table-row;
+    border: 1px solid black;
+    width: 100%
+}
+
+.cell1 {
+    display: table-cell;
+    border: 1px solid black;
+    width: 5%
+}
+
+.cell2 {
+    display: table-cell;
+    border: 1px solid black;
+    width: 100%
+}
+
+.failedtest {
+    display: table;
+    border: 1px solid black;
+    width: 100%;
+    background-color: #ff6f6f;
+}
+
+.zebra_odd {
+    background-color: #ABD5E0;
+}
+
+.zebra_even {
+    background-color: #38A7CB;
+}
+
+#box-table-a {
+    border-collapse: collapse;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;
+    margin: 20px;
+    text-align: left;
+    width: 480px;
+}
+
+#box-table-a th {
+    background: none repeat scroll 0 0 #006699;
+    border-bottom: 1px solid #FFFFFF;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 8px;
+}
+
+#box-table-a td {
+    background: none repeat scroll 0 0 #E8EDFF;
+    border-bottom: 1px solid #FFFFFF;
+    border-top: 1px solid transparent;
+    color: #666699;
+    padding: 8px;
+}
+
+#box-table-a tr:hover td {
+    background: none repeat scroll 0 0 #D0DAFD;
+    color: #333399;
+}
+
+.totalRow {
+    background: none repeat scroll 0 0 #006699;
+    border-bottom: 1px solid #FFFFFF;
+    font-size: 13px;
+    font-weight: normal;
+    padding: 8px;
+}
+
+ul {
+    margin: 0 auto;
+}
+
+ul.cool_background li {
+    text-align: left;
+    float: left;
+    list-style: none;
+    padding: 3px 10px 3px 25px;
+    margin: 5px;
+    background: url(cool_background.gif) 5px 5px no-repeat;
+}
+
+.rowStackTrace {
+    display: table-row;
+    border: 1px solid black;
+    width: 100%
+}
