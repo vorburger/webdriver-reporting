@@ -5,7 +5,31 @@
 	<groupId>ch.vorburger.webdriver</groupId>
 	<artifactId>webdriver-reporting</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<description>HTML Reports for WebDriver</description>
+	<name>WebDriver HTML Reports</name>
+	<description>Mini Framework (Tool) which builds HTML Reports from JUnit WebDriver runs</description>
+	<packaging>jar</packaging>
+
+	<url>https://github.com/vorburger/webdriver-reporting</url>
+	<licenses>
+		<license>
+			<name>Apache License 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+		</license>
+	</licenses>
+	<scm>
+		<connection>scm:git:https://github.com/vorburger/webdriver-reporting.git</connection>
+		<developerConnection>scm:git:https://vorburger@github.com/vorburger/webdriver-reporting.git</developerConnection>
+		<url>https://github.com/vorburger/webdriver-reporting</url>
+	</scm>
+	<developers>
+		<developer>
+			<id>vorburger</id>
+			<name>Michael Vorburger</name>
+			<url>http://www.vorburger.ch</url>
+			<email>michael.vorburger+webdriver-reporting-pom@gmail.com</email>
+		</developer>
+	</developers>
+	<inceptionYear>2011</inceptionYear>
 
 	<properties>
 		<webDriver.version>2.8.0</webDriver.version>
@@ -16,12 +40,6 @@
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>${webDriver.version}</version>
-			<!--
-				We are depending on Selenium/WebDriver with <scope>provided</scope>,
-				so that the exact version used here is not imposed on users of this lib. 
-				Not 100% sure that this is the best way to achieve that objective? 
-			  -->
-			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
@@ -44,20 +62,15 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.8.1</version>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
-	<inceptionYear>2011</inceptionYear>
-	<organization>
-		<name>Michael Vorburger</name>
-		<url>http://www.vorburger.ch</url>
-	</organization>
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
 				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>
@@ -72,6 +85,25 @@
 						<id>attach-sources</id>
 						<goals>
 							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.8</version>
+				<configuration>
+					<links>
+						<!-- Doesn't actually work, still JavaDoc warnings... giving up :-( -->
+						<link>http://kentbeck.github.com/junit/javadoc/latest/</link>
+					</links>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
 						</goals>
 					</execution>
 				</executions>

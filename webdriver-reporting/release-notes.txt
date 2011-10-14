@@ -1,0 +1,4 @@
+
+$ mvn -DdryRun=true clean release:clean release:prepare
+
+$ mvn release:clean
