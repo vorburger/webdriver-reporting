@@ -4,7 +4,7 @@
 
 	<groupId>ch.vorburger.webdriver</groupId>
 	<artifactId>webdriver-reporting</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>WebDriver HTML Reports</name>
 	<description>Mini Framework (Tool) which builds HTML Reports from JUnit WebDriver runs</description>
 	<packaging>jar</packaging>

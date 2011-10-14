@@ -1,3 +1,13 @@
+Simply do this, and change versions manually:
+
+$ mvn -DaltDeploymentRepository=snapshot-repo::default::file:../../github-vorburger-repository/maven-m2/snapshots/ clean deploy
+
+$ mvn -DaltDeploymentRepository=snapshot-repo::default::file:../../github-vorburger-repository/maven-m2/releases/ clean deploy
+
+___
+
+
+Doesn't really work...
 
 $ mvn -DdryRun=true clean release:clean release:prepare
 
@@ -10,6 +20,3 @@ $ mvn release:clean
 
 $ mvn release:rollback
 
-___
-
-$ mvn -DaltDeploymentRepository=snapshot-repo::default::file:../../github-vorburger-repository/maven-m2/snapshots/ clean deploy
