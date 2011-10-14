@@ -1,4 +1,15 @@
 
 $ mvn -DdryRun=true clean release:clean release:prepare
 
+$ mvn release:prepare
+
+$ mvn release:stage -DstagingRepository=staging::default::file:../../github-vorburger-repository/maven-m2/releases/ 
+	INSTEAD of $ mvn release:perform
+
 $ mvn release:clean
+
+$ mvn release:rollback
+
+___
+
+$ mvn -DaltDeploymentRepository=snapshot-repo::default::file:../../github-vorburger-repository/maven-m2/snapshots/ clean deploy
