@@ -7,4 +7,4 @@ in the module's target/surefire-reports/tests directory.
 
 Get the binary of the latest released version from [my Maven repo](https://github.com/vorburger/m2p2-repository).
 
-Please fork & improve it! ;-)
+Please fork it on GitHub, improve it, and send pull requests! ;-)
