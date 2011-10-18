@@ -17,9 +17,7 @@
 package ch.vorburger.webdriver.reporting;
 
 import java.io.File;
-import java.io.IOException;
 
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -34,19 +32,17 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 /**
  * A WebDriverEventListener which logs method calls.
  *
+ * This class should not have any JUnit or I/O dependencies/imports, only WebDriver.
+ *
  * @author Michael Vorburger
  */
 public class LoggingWebDriverEventListener extends AbstractWebDriverEventListener {
 
-	String LOG_FLAG = "Logflag";
-	TestCaseLogFileWriter clsObj = null;
+	private final TestCaseReportWriter clsObj;
 
-	public LoggingWebDriverEventListener(TestCaseLogFileWriter object) {
+	public LoggingWebDriverEventListener(TestCaseReportWriter object) {
 		clsObj = object;
 	}
-
-	private static boolean LOG_DIRECTORY_NAME_DONE = false;
-	String webElementId;
 
 	@Override
 	public void beforeClickOn(WebElement element, WebDriver driver) {
@@ -87,12 +83,12 @@ public class LoggingWebDriverEventListener extends AbstractWebDriverEventListene
 
 	@Override
 	public void beforeNavigateForward(WebDriver driver) {
-		clsObj.info(LOG_FLAG + " navigateForward");
+		clsObj.infoWithFlag(" navigateForward");
 	}
 
 	@Override
 	public void beforeNavigateTo(String url, WebDriver driver) {
-		clsObj.info(LOG_FLAG + " Go to URL " + url);
+		clsObj.infoWithFlag(" Go to URL " + url);
 	}
 
 	/**
@@ -102,7 +98,7 @@ public class LoggingWebDriverEventListener extends AbstractWebDriverEventListene
 	 * @param element WebElement
 	 * @param log message from the action
 	 */
-	public void logAndTakeSnapShot(WebDriver driver, WebElement element, String log) {
+	protected void logAndTakeSnapShot(WebDriver driver, WebElement element, String log) {
 		addStyleBeforeSnapShot(element, driver);
 
 		if (driver instanceof EventFiringWebDriver) {
@@ -111,31 +107,20 @@ public class LoggingWebDriverEventListener extends AbstractWebDriverEventListene
 		}
 		if (driver instanceof TakesScreenshot) {
 			TakesScreenshot takesScreenshotWebDriver = (TakesScreenshot) driver;
-			try {
-				File scrFile = takesScreenshotWebDriver.getScreenshotAs(OutputType.FILE);
-				File destDir = new File(System.getProperty("user.dir") + "\\target\\surefire-reports\\snapshots\\");
-				FileUtils.copyFileToDirectory(scrFile, destDir, true);
-
-				if (!LOG_DIRECTORY_NAME_DONE) {
-					LOG_DIRECTORY_NAME_DONE = true;
-				}
-
-				log(element, log, scrFile);
-				removeStyleafterSnapShot(element, driver);
-			} catch (IOException e) {
-				throw new RuntimeException("Oups, WebDriver Report could't take screenshot?!", e);
-			}
+			File srcFile = takesScreenshotWebDriver.getScreenshotAs(OutputType.FILE);
+			log(element, log, srcFile);
+			removeStyleafterSnapShot(element, driver);
 		} else {
 			log(element, log, null);
 		}
 	}
 
 	/**
-	 * Log.
+	 * Log, with a screenshot.
 	 *
 	 * @param element the WebElement, to give context, can be null if the previous message already gave it
 	 * @param message the message to log, never null
-	 * @param screenshot the Screenshot File, can be null if no screenshot is to be logged
+	 * @param screenshot the Screenshot File, can be null if no screenshot is to be logged. The File is copied.
 	 */
 	private void log(WebElement element, String message, File screenshot) {
 		StringBuilder sb = new StringBuilder();
@@ -156,10 +141,7 @@ public class LoggingWebDriverEventListener extends AbstractWebDriverEventListene
 				sb.append(" with name " + element.getAttribute("name"));
 			}
 		}
-		if (screenshot != null) {
-			sb.append("^" + screenshot.getName());
-		}
-		clsObj.info(LOG_FLAG+sb.toString());
+		clsObj.infoWithFlagAndScreenshot(sb.toString(), screenshot);
 	}
 
 	/**
@@ -215,6 +197,7 @@ public class LoggingWebDriverEventListener extends AbstractWebDriverEventListene
 	}
 
 	public void addStyleBeforeSnapShot(WebElement element, WebDriver driver) {
+		String webElementId;
 		if (element != null) {
 			try {
 				webElementId = element.getAttribute("id");
@@ -234,6 +217,7 @@ public class LoggingWebDriverEventListener extends AbstractWebDriverEventListene
 	}
 
 	public void removeStyleafterSnapShot(WebElement element, WebDriver driver) {
+		String webElementId;
 		if (element != null) {
 			webElementId = getAttributeSafely(element, "id");
 

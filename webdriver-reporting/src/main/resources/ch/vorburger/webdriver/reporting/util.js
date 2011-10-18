@@ -100,7 +100,7 @@ $(function(){
             var cssNode = top.packageFrame.document.createElement('link');
             cssNode.type = 'text/css';
             cssNode.rel = 'stylesheet';
-            cssNode.href = '../style.css';
+            cssNode.href = 'style.css';
             cssNode.media = 'screen';
             headIDCss.appendChild(cssNode);
             
@@ -154,7 +154,7 @@ $(function(){
             var cssNode = top.classFrame.document.createElement('link');
             cssNode.type = 'text/css';
             cssNode.rel = 'stylesheet';
-            cssNode.href = '../style.css';
+            cssNode.href = 'style.css';
             cssNode.media = 'screen';
             headIDCss.appendChild(cssNode);
             
@@ -163,21 +163,21 @@ $(function(){
             var newScript = top.classFrame.document.createElement('script');
             
             newScript.type = 'text/javascript';
-            newScript.src = '../jquery-1.4.2.min.js';
+            newScript.src = 'jquery-1.4.2.min.js';
             headID.appendChild(newScript);
             
             var headID1 = top.classFrame.document.getElementsByTagName("head")[0];
             var newScript1 = top.classFrame.document.createElement('script');
             
             newScript1.type = 'text/javascript';
-            newScript1.src = '../jquery-ui-1.8.5.custom.min.js';
+            newScript1.src = 'jquery-ui-1.8.5.custom.min.js';
             headID1.appendChild(newScript1);
             
             var headID2 = top.classFrame.document.getElementsByTagName("head")[0];
             var newScript2 = top.classFrame.document.createElement('script');
             
             newScript2.type = 'text/javascript';
-            newScript2.src = '../util.js';
+            newScript2.src = 'util.js';
             headID2.appendChild(newScript2);
             
             
@@ -251,21 +251,21 @@ function setJSandCSS(){
     var newScript = top.packageListFrame.document.createElement('script');
     
     newScript.type = 'text/javascript';
-    newScript.src = '../jquery-1.4.2.min.js';
+    newScript.src = 'jquery-1.4.2.min.js';
     headID.appendChild(newScript);
     
     var headID1 = top.packageListFrame.document.getElementsByTagName("head")[0];
     var newScript1 = top.packageListFrame.document.createElement('script');
     
     newScript1.type = 'text/javascript';
-    newScript1.src = '../jquery-ui-1.8.5.custom.min.js';
+    newScript1.src = 'jquery-ui-1.8.5.custom.min.js';
     headID1.appendChild(newScript1);
     
     var headID2 = top.packageListFrame.document.getElementsByTagName("head")[0];
     var newScript2 = top.packageListFrame.document.createElement('script');
     
     newScript2.type = 'text/javascript';
-    newScript2.src = '../util.js';
+    newScript2.src = 'util.js';
     headID2.appendChild(newScript2);
     
     
@@ -273,21 +273,21 @@ function setJSandCSS(){
     var newScript = top.packageFrame.document.createElement('script');
     
     newScript.type = 'text/javascript';
-    newScript.src = '../jquery-1.4.2.min.js';
+    newScript.src = 'jquery-1.4.2.min.js';
     headID.appendChild(newScript);
     
     var headID1 = top.packageFrame.document.getElementsByTagName("head")[0];
     var newScript1 = top.packageFrame.document.createElement('script');
     
     newScript1.type = 'text/javascript';
-    newScript1.src = '../jquery-ui-1.8.5.custom.min.js';
+    newScript1.src = 'jquery-ui-1.8.5.custom.min.js';
     headID1.appendChild(newScript1);
     
     var headID2 = top.packageFrame.document.getElementsByTagName("head")[0];
     var newScript2 = top.packageFrame.document.createElement('script');
     
     newScript2.type = 'text/javascript';
-    newScript2.src = '../util.js';
+    newScript2.src = 'util.js';
     headID2.appendChild(newScript2);
     
     

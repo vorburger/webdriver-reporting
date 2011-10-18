@@ -28,7 +28,7 @@ import org.openqa.selenium.support.events.WebDriverEventListener;
 
 import ch.vorburger.webdriver.reporting.LoggingTestWatchman;
 import ch.vorburger.webdriver.reporting.LoggingWebDriverEventListener;
-import ch.vorburger.webdriver.reporting.TestCaseLogFileWriter;
+import ch.vorburger.webdriver.reporting.TestCaseReportWriter;
 
 /**
  * Example & Test for Selenium-WebDriver HTML Report.
@@ -37,7 +37,7 @@ import ch.vorburger.webdriver.reporting.TestCaseLogFileWriter;
  */
 public class SampleGoogleSearchReportTest {
 
-	static private final TestCaseLogFileWriter LOG_FILE_WRITER = new TestCaseLogFileWriter();
+	static private final TestCaseReportWriter LOG_FILE_WRITER = new TestCaseReportWriter();
 
 	@Rule
 	public MethodRule logRule = new LoggingTestWatchman(LOG_FILE_WRITER);
