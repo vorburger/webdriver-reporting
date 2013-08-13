@@ -5,6 +5,26 @@ See [SampleGoogleSearchReportTest.java](https://github.com/vorburger/webdriver-r
 for a usage example.  After running a (suite of) tests, you'll find a logReport.html home page
 in the module's target/surefire-reports/tests directory.
 
-Get the binary of the latest released version from [my Maven repo](https://github.com/vorburger/m2p2-repository), but better do clone the latest SNAPSHOT src instead of the release *src.jar.
+Get the binary of it from [my Maven repo](https://github.com/vorburger/m2p2-repository), like this:
+```
+  <dependency>
+			<groupId>ch.vorburger.webdriver</groupId>
+			<artifactId>webdriver-reporting</artifactId>
+			<version>1.1.0-SNAPSHOT</version>
+	</dependency>
+		
+	...
+  <repositories>
+      <repository>
+         <id>vorburger-releases</id>
+         <url>http://vorburger.github.com/m2p2-repository/maven/releases</url>
+      </repository>
+      <repository>
+         <id>vorburger-snapshots</id>
+         <url>http://vorburger.github.com/m2p2-repository/maven/snapshots</url>
+      </repository>
+   </repositories>
+```
+Deployment to this Maven repo is currently manual (no continous integration set-up yet).. so to get latestSNAPSHOT, you but better do a clone of this repo (src) and "mvn install" it locally.
 
 Please fork it on GitHub, improve it massively, and send pull requests! ;-)
