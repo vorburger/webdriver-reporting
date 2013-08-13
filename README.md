@@ -25,6 +25,7 @@ Get the binary of it from [my Maven repo](https://github.com/vorburger/m2p2-repo
       </repository>
    </repositories>
 ```
-Deployment to this Maven repo is currently manual (no continous integration set-up yet).. so to get latestSNAPSHOT, you but better do a clone of this repo (src) and "mvn install" it locally.
+Deployment to this Maven repo is currently manual (no continous integration set-up yet).. 
+so to get latest SNAPSHOT, you better do a clone of this repo (src) and "mvn install" it locally if you can.
 
 Please fork it on GitHub, improve it massively, and send pull requests! ;-)
