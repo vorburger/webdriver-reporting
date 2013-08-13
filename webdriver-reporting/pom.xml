@@ -33,6 +33,7 @@
 
 	<properties>
 		<webDriver.version>2.8.0</webDriver.version>
+		<built.repo.dir>${project.build.directory}/repo</built.repo.dir>
 	</properties>
 
 	<dependencies>
@@ -92,6 +93,13 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<altDeploymentRepository>internal.repo::default::file://${built.repo.dir}</altDeploymentRepository>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
