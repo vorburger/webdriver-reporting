@@ -1,5 +1,5 @@
 language: java
 before_script: cd webdriver-reporting
-script: mvn clean install
+script: mvn -DskipTests clean install
 jdk:
 - openjdk6
