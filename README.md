@@ -3,7 +3,7 @@ for functional UI front-end tests written using Selenium 2.0 (AKA  WebDriver) an
 
 See [SampleGoogleSearchReportTest.java](https://github.com/vorburger/webdriver-reporting/blob/master/webdriver-reporting/src/test/java/ch/vorburger/webdriver/reporting/tests/SampleGoogleSearchReportTest.java)
 for a usage example.  After running a (suite of) tests, you'll find an index.html report home page
-in the module's target/surefire-reports/tests directory.
+in the module's target/surefire-reports/tests directory, which [looks like this](http://www.vorburger.ch/webdriver-reporting/).
 
 Get the binary of it from [my Maven repo](https://github.com/vorburger/m2p2-repository), like this:
 ```
