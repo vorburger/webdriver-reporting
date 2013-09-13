@@ -22,9 +22,11 @@ import org.junit.rules.MethodRule;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.events.WebDriverEventListener;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import ch.vorburger.webdriver.reporting.LoggingTestWatchman;
 import ch.vorburger.webdriver.reporting.LoggingWebDriverEventListener;
@@ -46,7 +48,9 @@ public class SampleGoogleSearchReportTest {
 	public void testGoogleSearch() {
 		EventFiringWebDriver driverWithReporting;
 		{
-			WebDriver driver = new InternetExplorerDriver();
+			// System.setProperty("webdriver.chrome.driver", "/opt/google/chrome/chrome");
+			// WebDriver driver = new ChromeDriver();
+			WebDriver driver = new FirefoxDriver(); 
 
 			WebDriverEventListener loggingListener = new LoggingWebDriverEventListener(LOG_FILE_WRITER);;
 			driverWithReporting = new EventFiringWebDriver(driver);
@@ -57,5 +61,10 @@ public class SampleGoogleSearchReportTest {
 		WebElement element = driverWithReporting.findElement(By.name("q"));
 		element.sendKeys("Mifos");
 		element.submit();
+		
+        (new WebDriverWait(driverWithReporting, 10))
+        	.until(ExpectedConditions.presenceOfElementLocated(By.id("bfoot")));
+        
+        driverWithReporting.quit();
 	}
 }
