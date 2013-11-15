@@ -29,3 +29,7 @@ Deployment to this Maven repo is currently manual (no continous integration set-
 so to get latest SNAPSHOT, you better do a clone of this repo (src) and "mvn install" it locally if you can.
 
 Please fork it on GitHub, improve it massively, and send pull requests! ;-)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/vorburger/webdriver-reporting/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
