@@ -94,13 +94,23 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<version>2.7</version>
-				<configuration>
-					<altDeploymentRepository>internal.repo::default::file://${built.repo.dir}</altDeploymentRepository>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
+	
+	<profiles>
+		<profile>
+			<id>deployToTargetFolder</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-deploy-plugin</artifactId>
+						<version>2.7</version>
+						<configuration>
+							<altDeploymentRepository>internal.repo::default::file://${built.repo.dir}</altDeploymentRepository>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
