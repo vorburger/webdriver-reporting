@@ -194,7 +194,7 @@ $(function(){
                 tempLink = testClassArray[testClassArray.length - 1].substring(0, indexDot);
                 //frameHtml = "<h3><a href='./" + tempLink + "/" + hrefLink + "_log.html?stackTraceFlag=true' onclick='showStackTrace();' target='classFrame'>Show StackTrace</a></h3>";
 			}
-            frameHtml = frameHtml + "<h2>Test Summary</h2><table id=\"box-table-a\"><tr><th>Package Name</th><th>Total Tests</th><th>Pass Tests</th><th>Fail tests</th></tr>";
+            frameHtml = frameHtml + "<h2>Test Summary</h2><table style=\"width:100%\" id=\"box-table-a\"><tr><th>Package Name</th><th>Total Tests</th><th>Pass Tests</th><th>Fail tests</th></tr>";
             for (var index1 = 0; index1 < packageArray.length; index1++) {
                 frameHtml = frameHtml + "<tr><td>" + packageArray[index1] + "</td>";
                 
